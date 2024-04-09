@@ -12,6 +12,7 @@ const Navbar = () => {
               <img
                 src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo-primary.svg"
                 alt="logo"
+                
                 className="dark:"
               />
               <img
@@ -41,11 +42,13 @@ const Navbar = () => {
                   !open && "hidden"
                 } `}
               >
-                <ul className="block lg:flex space-x-12">
+                <ul className="block lg:flex space-x-8">
                   <ListItem NavLink="/blog">Home</ListItem>
                   <ListItem NavLink="/savings">Savings-Calculator</ListItem>
                   <ListItem NavLink="/about">About</ListItem>
                   <ListItem NavLink="blog">Blog</ListItem>
+                  <ListItem NavLink="Display">Display</ListItem>
+                  <ListItem NavLink="/StockPrices">StockPrices</ListItem>
                 </ul>
               </nav>
             </div>

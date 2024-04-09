@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
+export var _name='';
+export var _expenseType='';
+export var _amount=0;
 const SavingsInput = () => {
 
  
@@ -21,8 +24,11 @@ const SavingsInput = () => {
        console.log(response.data);
       setSuggestions(response.data.suggestions); // Replace with actual suggestions logic
       setMoneySaved(response.data.moneySaved); 
+      _name=name;
+      _expenseType=expenseType
+      _amount=response.data.moneySaved
       console.log(suggestions)// Replace with actual money saved logic
-       
+      window.location.href = "http://localhost:3000/display"
     } catch (error) {
       console.error(error);
       // Handle errors gracefully, e.g., display an error message to the user
@@ -77,15 +83,15 @@ const SavingsInput = () => {
   >
     <option value="">Select an Expense Type</option>
     <option value="food">Food</option>
-    <option value="transportation">Transportation</option>
-    <option value="entertainment">Utilities</option>
-    <option value="housing">Entertainment</option>
-    <option value="Investments and Retirement Planning">Housing</option>
-    <option value="Utilities and Energy Consumption">Insurance</option>
-    <option value="HealthInsurance and Healthcare Costsare">Healthcare</option>
+    <option value="transportation">transportation</option>
+    <option value="entertainment">entertainment</option>
+    <option value="housing">housing</option>
+    <option value="Investments and Retirement Planning">Investments and Retirement Planning</option>
+    <option value="Utilities and Energy Consumption">Utilities and Energy Consumption</option>
+    <option value="HealthInsurance and Healthcare Costs">HealthInsurance and Healthcare Costs</option>
     <option value="Shopping">Shopping</option>
-    <option value="Personal Finance Management">Shopping</option>
-     <option value="other">Other</option>
+    <option value="Personal Finance Management">Personal Finance Management</option>
+     <option value="other">other</option>
   </select>
   {/* Additional input field for manual entry */}
   {expenseType === "other" && (
@@ -116,3 +122,4 @@ const SavingsInput = () => {
 };
 
 export default SavingsInput;
+

@@ -1,8 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "allowedHosts": "all",
-  "proxy": "http://localhost:8000",
+  
   "description": "client",
   "private": true,
   "dependencies": {

@@ -2,6 +2,9 @@ import React,{useEffect} from "react";
 import axios from "axios";
 import { useState } from "react";
 import Header from "./Header.jsx";
+import SavingsInput from "./SavingsInput.jsx";
+import { _amount,_expenseType,_name } from "./SavingsInput.jsx";
+
 const Display = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [amountSaved, setamountSaved] = useState(0);
@@ -25,15 +28,16 @@ const Display = () => {
     <>
     <div> <Header/> </div>
       <div className="flex justify-center ">
+        <div><SavingsInput/></div>
   <ol className="max-w-xl w-full space-y-4 mt-[06px] ml-[217px]">
-  <h1> Your Suggestions regarding </h1>
-    <ListItem count={1} text={suggestions[0]} />
-    <ListItem count={2} text={suggestions[1]} />
-    <ListItem count={3} text={suggestions[2]} />
-    <ListItem count={4} text={suggestions[3]} />
-    <ListItem count={5} text={suggestions[4]} />
-    <ListItem count={6} text={suggestions[5]} />
-    <ListItem count={7} text={"The total amount saved is " +  `${amountSaved}`}/>
+  <h1> Hi {_name} !! you saved Rs {amountSaved} on {_expenseType} </h1>
+    <ListItem count={1} text={suggestions[0]  || 'No suggestion'} />
+    <ListItem count={2} text={suggestions[1] || 'No suggestion'} />
+    <ListItem count={3} text={suggestions[2] || 'No suggestion'} />
+    <ListItem count={4} text={suggestions[3] || 'No suggestion'} />
+    <ListItem count={5} text={suggestions[4] || 'No suggestion'} />
+    <ListItem count={6} text={suggestions[5] || 'No suggestion'} />
+    <ListItem count={7} text={amountSaved ? "The total amount saved is " + amountSaved : '0'}/>
   </ol>
 </div>
 </>
